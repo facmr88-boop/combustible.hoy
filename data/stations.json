@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "brand": "YPF",
+    "name": "YPF Cabildo & Juramento",
+    "fuel": "Nafta Súper",
+    "price": 1390,
+    "updated": "hace 12 min",
+    "distance": "0.8 km",
+    "city": "Belgrano"
+  },
+  {
+    "id": 2,
+    "brand": "Shell",
+    "name": "Shell Monroe & Av. del Libertador",
+    "fuel": "Nafta V-Power",
+    "price": 1540,
+    "updated": "hace 7 min",
+    "distance": "1.1 km",
+    "city": "Núñez"
+  },
+  {
+    "id": 3,
+    "brand": "Axion",
+    "name": "Axion Córdoba & Callao",
+    "fuel": "Gasoil",
+    "price": 1295,
+    "updated": "hace 3 min",
+    "distance": "2.4 km",
+    "city": "Recoleta"
+  }
+]

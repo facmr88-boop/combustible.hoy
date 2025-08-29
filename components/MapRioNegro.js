@@ -10,7 +10,7 @@ export default function MapRioNegro({ geojson }) {
 
     const map = new maplibregl.Map({
       container: ref.current,
-      style: "https://demotiles.maplibre.org/style.json", // GRATIS, sin tarjeta
+      style: "https://demotiles.maplibre.org/style.json", // gratis
       center: [-67.8, -40.8], // Río Negro
       zoom: 5.5
     });
@@ -32,7 +32,6 @@ export default function MapRioNegro({ geojson }) {
         }
       });
 
-      // Fit bounds
       const coords = geojson.features?.map(f => f.geometry.coordinates) || [];
       if (coords.length) {
         let [minX, minY] = coords[0], [maxX, maxY] = coords[0];
@@ -52,6 +51,7 @@ export default function MapRioNegro({ geojson }) {
           .setHTML(`<strong>${p.brand || p.name || "Estación"}</strong><br>${p.name || ""}`)
           .addTo(map);
       });
+
       map.on("mouseenter", "stations", () => (map.getCanvas().style.cursor = "pointer"));
       map.on("mouseleave", "stations", () => (map.getCanvas().style.cursor = ""));
     });
@@ -59,5 +59,5 @@ export default function MapRioNegro({ geojson }) {
     return () => map.remove();
   }, [geojson]);
 
-  return <div ref={ref} className="h-96 w-full rounded-3xl shadow" />;
+  return <div ref={ref} className="h-96 w-full rounded-3xl overflow-hidden shadow" />;
 }

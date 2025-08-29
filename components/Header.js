@@ -1,4 +1,3 @@
-
 export default function Header() {
   return (
     <header className="max-w-6xl mx-auto p-6 pb-0">

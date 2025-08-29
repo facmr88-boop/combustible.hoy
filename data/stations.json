@@ -1,0 +1,32 @@
+[
+  {
+    "id": "s1",
+    "brand": "YPF",
+    "name": "YPF - Nafta S\u00faper",
+    "fuel": "Nafta S\u00faper",
+    "price": 1390,
+    "city": "Cipolletti",
+    "updated": "hace 12 min",
+    "distance": "0.8 km"
+  },
+  {
+    "id": "s2",
+    "brand": "Shell",
+    "name": "Shell - Nafta V-Power",
+    "fuel": "Nafta V-Power",
+    "price": 1540,
+    "city": "General Roca",
+    "updated": "hace 7 min",
+    "distance": "1.2 km"
+  },
+  {
+    "id": "s3",
+    "brand": "Axion",
+    "name": "Axion - Gasoil",
+    "fuel": "Gasoil",
+    "price": 1295,
+    "city": "Neuqu\u00e9n",
+    "updated": "hace 3 min",
+    "distance": "2.4 km"
+  }
+]

@@ -17,6 +17,20 @@ export default function MapRioNegro({ geojson }) {
 
     map.addControl(new maplibregl.NavigationControl(), "top-right");
 
+    if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      const { latitude, longitude } = pos.coords;
+      new maplibregl.Marker({ color: "#2563eb" })
+        .setLngLat([longitude, latitude])
+        .setPopup(new maplibregl.Popup().setText("Estás acá"))
+        .addTo(map);
+    },
+    () => {} // silencio si no da permiso
+  );
+}
+
+
     map.on("load", () => {
       map.addSource("stations", { type: "geojson", data: geojson });
 

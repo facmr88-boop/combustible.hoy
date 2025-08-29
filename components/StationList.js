@@ -1,4 +1,3 @@
-
 export default function StationList({ stations }) {
   return (
     <div className="p-4 bg-white rounded-3xl shadow">

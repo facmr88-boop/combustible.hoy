@@ -27,9 +27,13 @@ export async function GET() {
   const features = (json.elements || [])
     .map((el) => {
       let lon, lat;
-      if (el.type === "node") { lat = el.lat; lon = el.lon; }
-      else if (el.center) { lat = el.center.lat; lon = el.center.lon; }
-      else { return null; }
+      if (el.type === "node") {
+        lat = el.lat; lon = el.lon;
+      } else if (el.center) {
+        lat = el.center.lat; lon = el.center.lon;
+      } else {
+        return null;
+      }
 
       const tags = el.tags || {};
       const fuelTypes = Object.keys(tags)
@@ -59,3 +63,4 @@ export async function GET() {
     }
   });
 }
+

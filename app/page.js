@@ -1,19 +1,26 @@
-
 "use client";
-import { useMemo, useState } from "react";
+-import MapMock from "@/components/MapMock";
++import MapRioNegro from "@/components/MapRioNegro";
+import { useEffect, useState, useMemo } from "react";
 import Header from "@/components/Header";
-import MapMock from "@/components/MapMock";
 import StationList from "@/components/StationList";
 import ReportCard from "@/components/ReportCard";
 import stationsData from "@/data/stations.json";
 
 export default function HomePage() {
   const [query, setQuery] = useState("");
++ const [geojson, setGeojson] = useState({ type:"FeatureCollection", features: [] });
+
++ useEffect(() => {
++   fetch("/api/rionegro-stations").then(r => r.json()).then(setGeojson).catch(() => {
++     setGeojson({ type:"FeatureCollection", features: [] });
++   });
++ }, []);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return stationsData;
-    return stationsData.filter(s => 
+    return stationsData.filter(s =>
       s.name.toLowerCase().includes(q) ||
       s.brand.toLowerCase().includes(q) ||
       s.fuel.toLowerCase().includes(q) ||
@@ -33,9 +40,10 @@ export default function HomePage() {
               placeholder="Buscar estación, marca o barrio"
               className="w-full px-4 py-3 rounded-2xl border bg-white shadow-sm focus:outline-none"
             />
-            <button onClick={() => {}} className="px-4 py-3 rounded-2xl bg-black text-white">Buscar</button>
+            <button className="px-4 py-3 rounded-2xl bg-black text-white">Buscar</button>
           </div>
-          <MapMock />
+-         <MapMock />
++         <MapRioNegro geojson={geojson} />
         </section>
 
         <aside className="space-y-4">
@@ -49,8 +57,9 @@ export default function HomePage() {
         </aside>
       </main>
       <footer className="max-w-6xl mx-auto mt-12 text-center text-sm text-gray-500 p-6">
-        Hecho con ♥ en Argentina · MVP v0.1 (mock)
+        Hecho con ♥ en Argentina · MVP v0.1
       </footer>
     </div>
   );
 }
+

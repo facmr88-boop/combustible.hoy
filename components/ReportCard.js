@@ -1,4 +1,3 @@
-
 export default function ReportCard() {
   const reportUrl = "#"; // Reemplazar por Google Form o página /reportar en V1
   return (
